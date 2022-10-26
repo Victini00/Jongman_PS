@@ -88,13 +88,12 @@ def probab(word, seq):
 # 문장을 출력해주는 함수
 def making_sentence():
     total_sentence = []
-    next_word = 0
     
-    next_word = sen_cache[next_word][0]
+    next_word = sen_cache[0][0]
     total_sentence.append(next_word)
     
     for i in range(1, sen_len):
-        # 맨 처음 단어를 어케할까
+        # sen_cache의 단어를 통해 가장 큰 확률의 단어를 추적
         next_word = sen_cache[word_list.index(next_word)][i]
         total_sentence.append(next_word)
         
@@ -103,8 +102,9 @@ def making_sentence():
 # ----------------------------------
 probab('*', 0)
 print(making_sentence())
-    
+
 # --output example-------------------
 '''
 ['i','am','a','boy']
 '''
+    
